@@ -1,0 +1,26 @@
+body	{
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+}
+
+.erreur	{
+	color:#FFFFFF;
+	background-color:#FF0000;
+	text-align:center;
+	width:100%;
+}
+	
+table .menu	{
+	background-color:#333333;
+	color:#0099FF;
+	font-weight:bold;
+	text-align:center;
+}
+
+a	{
+	color:#009900;
+	text-decoration:none;
+}
+
+a:hover	{
+	color:#00FF66;
+}

@@ -1,0 +1,61 @@
+Bienvenue et merci d'avoir téléchargé l'espace membre RVJ-WEB.
+
+Cette version 1.0 comprend :
+- une page d'inscription
+- un acceuil
+- une page d'identification
+- une page de modification de profil
+- une page de mot de passe perdu
+- une page de configuration
+- une page à inclure pour faire des pages pour les membres identifiés
+
+Pour le local (easyPHP, ...), veuillez supprimer les pages perdu.php & perdu2.php car le mot de passe perdu ne marche pas en local (pour l'instant).
+
+INSTALATION
+Créez une base de données (ou prennez une existante qui ne contient pas de table appelée "membres") puis allez dans l'onglet SQL et rentrez ce qu'il y a entre les #
+#############################################################
+CREATE TABLE `membres` (
+  `id` mediumint(9) NOT NULL auto_increment,
+  `session` text NOT NULL,
+  `pseudo` text NOT NULL,
+  `passe` text NOT NULL,
+  `email` text NOT NULL,
+  KEY `id` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+#############################################################
+
+Puis ouvrez le fichier "config.php" avec bloc-notes soit en faisant clique droit => ouvrir avec... avec Windows 2000, XP ou Vista sinon renommez le fichier en config.txt, modifiez le puis renommez le en config.php.
+Ensuite uploadez le tout sur votre FTP ou gérez le avec votre logiciel (easyPHP, ...)
+
+
+/////////AJOUTS DE PAGES///////////
+
+Si vous souhaitez ajouter une page seulement pour les membres identifiés ajoutez ce code en haut (tout au début) :
+<?php
+session_start();
+require_once('config.php');
+require_once('verifications.php');
+$titre_page='le titre de la page';
+include_once('haut.php');
+?>
+
+Si vous souhaitez ajouter une page pour tous, mettez ce code :
+<?php
+session_start();
+require_once('config.php');
+$titre_page='le titre de la page';
+include_once('haut.php');
+?>
+
+Et en bas pour toutes les pages (identifiés ou non) : 
+<?php
+include_once('bas.php');
+?>
+
+
+
+Si vous ne comprennez pas tout ou que vous souhaitez encore des informations supplémentaires ou des idées à nous suggerer, contactez nous par mail à contact@rvj-web.info.
+
+A bientot,
+Vincent,
+Le codeur de cet espace membres.
